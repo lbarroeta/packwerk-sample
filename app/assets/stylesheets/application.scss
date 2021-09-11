@@ -12,3 +12,11 @@
   src: font-url("bootstrap-icons/font/fonts/bootstrap-icons.woff2") format("woff2"),
   font-url("bootstrap-icons/font/fonts/bootstrap-icons.woff") format("woff");
 }
+
+.dropdown-menu::before {
+  display: none;
+}
+
+#nav-profile-option::before {
+  display: none !important;
+}
