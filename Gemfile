@@ -4,9 +4,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.1'
 
 gem 'devise'
+gem 'discard', '~> 1.2'
 gem 'hotwire-rails'
 gem 'jsbundling-rails'
 gem 'pagy', '~> 4.11'
+gem 'pundit'
 gem 'view_component', require: 'view_component/engine'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'

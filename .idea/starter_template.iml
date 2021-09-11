@@ -54,6 +54,7 @@
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="devise (v4.8.0, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.4.4, rbenv: 3.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="discard (v1.2.0, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.10.0, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="factory_bot (v6.2.0, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="factory_bot_rails (v6.2.0, rbenv: 3.0.1) [gem]" level="application" />
@@ -76,11 +77,13 @@
     <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.5.8, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.12.4, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="orm_adapter (v0.5.0, rbenv: 3.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pagy (v4.11.0, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pg (v1.2.3, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pry (v0.14.1, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pry-rails (v0.3.9, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="public_suffix (v4.0.6, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v5.4.0, rbenv: 3.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pundit (v2.1.1, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="racc (v1.5.2, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.2.3, rbenv: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-mini-profiler (v2.3.3, rbenv: 3.0.1) [gem]" level="application" />
@@ -159,6 +162,8 @@
         <option value="model" />
         <option value="mongoid:devise" />
         <option value="preview:component" />
+        <option value="pundit:install" />
+        <option value="pundit:policy" />
         <option value="rack_profiler:install" />
         <option value="resource" />
         <option value="responders:install" />
@@ -175,6 +180,7 @@
         <option value="rspec:mailbox" />
         <option value="rspec:mailer" />
         <option value="rspec:model" />
+        <option value="rspec:policy" />
         <option value="rspec:request" />
         <option value="rspec:scaffold" />
         <option value="rspec:system" />
@@ -198,6 +204,7 @@
         <option value="test_unit:mailer" />
         <option value="test_unit:model" />
         <option value="test_unit:plugin" />
+        <option value="test_unit:policy" />
         <option value="test_unit:scaffold" />
         <option value="test_unit:system" />
       </list>
@@ -232,6 +239,8 @@
         <option value="model" />
         <option value="mongoid:devise" />
         <option value="preview:component" />
+        <option value="pundit:install" />
+        <option value="pundit:policy" />
         <option value="rack_profiler:install" />
         <option value="resource" />
         <option value="responders:install" />
@@ -248,6 +257,7 @@
         <option value="rspec:mailbox" />
         <option value="rspec:mailer" />
         <option value="rspec:model" />
+        <option value="rspec:policy" />
         <option value="rspec:request" />
         <option value="rspec:scaffold" />
         <option value="rspec:system" />
@@ -271,6 +281,7 @@
         <option value="test_unit:mailer" />
         <option value="test_unit:model" />
         <option value="test_unit:plugin" />
+        <option value="test_unit:policy" />
         <option value="test_unit:scaffold" />
         <option value="test_unit:system" />
       </list>
@@ -416,6 +427,7 @@
           <RakeTaskImpl description="Run all specs in spec directory (excluding plugin specs)" fullCommand="spec" id="spec" />
           <RakeTaskImpl id="spec">
             <subtasks>
+              <RakeTaskImpl description="Run the code examples in spec/components" fullCommand="spec:components" id="components" />
               <RakeTaskImpl description="Run the code examples in spec/models" fullCommand="spec:models" id="models" />
             </subtasks>
           </RakeTaskImpl>
