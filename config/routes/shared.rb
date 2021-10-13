@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     root 'devise/sessions#new'
-
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
   get '/dashboard', to: 'shared/dashboards#index'
+
 end
