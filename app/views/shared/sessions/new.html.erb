@@ -1,4 +1,4 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { data: { turbo: 'false' }}) do |f| %>
+<%= form_with url: sessions_path do |form| %>
   <section class="min-vh-100 mb-8">
     <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg">
       <div class="container">
@@ -9,6 +9,7 @@
         </div>
       </div>
     </div>
+
     <div class="container">
       <div class="row mt-lg-n10 mt-md-n11 mt-n10">
         <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
@@ -20,7 +21,7 @@
               <div class="text-left">
                 <div class="mb-3">
                   <label>Email</label>
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Escribe tu email', required: true %>
+                  <%= form.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Escribe tu email', required: true %>
                 </div>
 
                 <div class="mb-3">
@@ -30,24 +31,20 @@
                     </div>
 
                     <div class="col">
-                      <a class="text-sm" href="<%= new_password_path(resource_name) %>">¿Olvidaste tu contraseña?</a>
+                      <a class="text-sm" href="<%#= new_password_path(resource_name) %>">¿Olvidaste tu contraseña?</a>
                     </div>
                   </div>
 
-                  <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Contraseña', required: true %>
+                  <%= form.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Contraseña', required: true %>
                 </div>
 
-                <% if devise_mapping.rememberable? %>
-                  <div class="form-check form-switch">
-                    <%= f.check_box :remember_me, class: 'form-check-input' %>
-                    <label class="form-check-label" for="rememberMe">Recordarme</label>
-                  </div>
-                  <%#= f.check_box :remember_me %>
-<!--                  <label>Recordarme</label>-->
-                <% end %>
+                <div class="form-check form-switch">
+                  <%= form.check_box :remember_me, class: 'form-check-input' %>
+                  <label class="form-check-label" for="rememberMe">Recordarme</label>
+                </div>
 
                 <div class="text-center mb-4">
-                  <%= f.submit "Log in", class: 'btn bg-gradient-dark w-100 my-4 mb-2' %>
+                  <%= form.submit "Iniciar sesion", class: 'btn bg-gradient-dark w-100 my-4 mb-2' %>
                 </div>
               </div>
             </div>

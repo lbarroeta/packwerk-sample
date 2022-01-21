@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 class Shared::DashboardsController < ApplicationController
-
-  before_action :authenticate_user!
-
   layout 'dashboards'
 
-  def index; end
+  before_action :require_login
 
+  def index; end
 end

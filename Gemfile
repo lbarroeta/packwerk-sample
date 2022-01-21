@@ -1,15 +1,16 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.1'
 
-gem 'devise'
 gem 'discard', '~> 1.2'
 gem 'hotwire-rails'
 gem 'jsbundling-rails'
 gem 'pagy', '~> 4.11'
 gem 'pundit'
-gem 'view_component', require: 'view_component/engine'
+gem 'sorcery', '~> 0.16.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -21,8 +22,6 @@ gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'

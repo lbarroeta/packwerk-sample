@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>StarterTemplate - Dashboard</title>
+    <title>RailsBoilerplate</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all'  %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   </head>
 
   <body class="g-sidenav-show bg-gray-100">
-    <%= render Shared::Navigation::SidebarComponent.new %>
+  <%= render partial: 'layouts/shared/navigation/sidebar' %>
 
     <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg">
-      <%= render Shared::Navigation::NavbarComponent.new %>
+      <%= render partial: 'layouts/shared/navigation/nav' %>
       <%= yield %>
     </main>
   </body>
