@@ -3,12 +3,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.1'
-
 gem 'discard', '~> 1.2'
 gem 'jsbundling-rails'
 gem 'pagy', '~> 4.11'
 gem 'pundit'
+gem 'sidekiq', '~> 6.5', '>= 6.5.8'
 gem 'sorcery', '~> 0.16.1'
 gem 'stimulus-rails'
 gem 'turbo-rails'
@@ -33,6 +32,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry-rails'
