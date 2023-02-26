@@ -1,0 +1,19 @@
+es:
+  activerecord:
+    models:
+      customer: Cliente
+      customer_address: Direccion
+    attributes:
+      customer:
+        name: Nombre
+        identifier: Identificador
+        customer_type: Tipo de cliente
+        status: Estado
+      customer_address:
+        full_address: Direccion completa
+        country: País
+        state: Estado/Provincia
+        city: Ciudad
+  shared:
+    dropdowns:
+      select: Seleccione una opcion

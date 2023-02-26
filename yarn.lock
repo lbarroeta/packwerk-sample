@@ -39,6 +39,11 @@
   dependencies:
     spark-md5 "^3.0.1"
 
+"@rails/request.js@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@rails/request.js/-/request.js-0.0.8.tgz#5e2e8da15013b1af7f04d759e4e9d1cff981865c"
+  integrity sha512-ysHYZDl+XjBwFVXz7EI7XW+ZWiTFY8t7TrC/ahpAPt0p7NE4DZxm1nJQY9gmF4PBf+4pAYa+D/rLIGmrn1ZMvg==
+
 bootstrap-icons@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.5.0.tgz#2cb19da148aa9105cb3174de2963564982d3dc55"
@@ -180,6 +185,11 @@ esbuild@^0.14.24:
     esbuild-windows-64 "0.14.24"
     esbuild-windows-arm64 "0.14.24"
 
+jquery@^3.6.3:
+  version "3.6.3"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.3.tgz#23ed2ffed8a19e048814f13391a19afcdba160e6"
+  integrity sha512-bZ5Sy3YzKo9Fyc8wH2iIQK4JImJ6R0GWI9kL1/k7Z91ZBNgkRXE6U0JfHIizZbort8ZunhSI3jw9I6253ahKfg==
+
 lodash-es@^4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
@@ -189,6 +199,11 @@ perfect-scrollbar@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/perfect-scrollbar/-/perfect-scrollbar-1.5.2.tgz#41167ac6bc95e3a5e87a7402fa36fdacca9bc298"
   integrity sha512-McHAinFkyzKbBZrFtb4MT2mxkehp15KvOX/UrjB8C5EZZXHTHgyETo5IGFYtHRTI2Pb2bsV0OE0YnkjT9Cw3aw==
+
+popper.js@^1.16.1:
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
+  integrity sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==
 
 smooth-scrollbar@^8.6.3:
   version "8.6.3"
@@ -204,6 +219,11 @@ spark-md5@^3.0.1:
   resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.2.tgz#7952c4a30784347abcee73268e473b9c0167e3fc"
   integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
 
+tooltip-plugin@^1.0.16:
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/tooltip-plugin/-/tooltip-plugin-1.0.16.tgz#489602384dc6ff1f99004f54f833441b33d86352"
+  integrity sha512-bZTFoMw2UM9dX9R6hZIme2vrMLvctdmqGDhzalXGrlxKGzRGTTSnpN6MAGvFf2aXOYfuRwQAhhoTLaleEnI4PQ==
+
 trix@^2.0.0-beta.0:
   version "2.0.0-beta.0"
   resolved "https://registry.yarnpkg.com/trix/-/trix-2.0.0-beta.0.tgz#e7034867182356c023abdef90c7bdc341bb3e105"
@@ -213,3 +233,10 @@ tslib@^1.10.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
+
+virtual-select-plugin@^1.0.37:
+  version "1.0.37"
+  resolved "https://registry.yarnpkg.com/virtual-select-plugin/-/virtual-select-plugin-1.0.37.tgz#17b919686358c4f6ad36ff5fa3162534a036c055"
+  integrity sha512-wHNB0omrGRPVu7jkoVfY99i52NXgowyy4cvLRLUj7ZD6E3QOcGybNatk13c9thKGzrTPNKA/d9gTETR0ojnnlw==
+  dependencies:
+    tooltip-plugin "^1.0.16"

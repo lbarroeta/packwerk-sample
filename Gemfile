@@ -3,7 +3,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'active_decorator'
+gem 'city-state'
+gem 'countries'
 gem 'discard', '~> 1.2'
+gem 'enumerate_it'
 gem 'jsbundling-rails'
 gem 'pagy', '~> 4.11'
 gem 'pundit'

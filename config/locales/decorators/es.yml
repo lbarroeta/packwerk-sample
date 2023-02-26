@@ -1,0 +1,15 @@
+es:
+  decorators:
+    customer/index_headers:
+      client: Cliente
+      identifier: Identificador
+      client_type: Tipo de cliente
+      options: Opciones
+    customer/index_dropdown:
+      options: Opciones
+      create_client: Crear
+    customer/table_dropdown:
+      see_details: Ver detalles
+      blocked: Bloquear
+      active: Activar
+

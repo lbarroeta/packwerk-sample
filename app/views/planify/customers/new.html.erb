@@ -1,0 +1,141 @@
+<%= form_with model: Customer.new, url: planify_customers_url, method: :post do |form| %>
+  <div class="card card-body mt-4">
+    <h6 class="mb-0"><%= SharedDecorator.view_title(action_name, controller_name) %></h6>
+
+    <hr class="horizontal dark my-2">
+
+    <div class="row">
+      <div class="col">
+        <label for="customer_name" class="form-label"><%= t('activerecord.attributes.customer.name') %></label>
+        <%= form.text_field :name, class: 'form-control', required: true, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col">
+        <label for="customer_identifier" class="form-label"><%= t('activerecord.attributes.customer.identifier').humanize %></label>
+        <%= form.text_field :identifier, class: 'form-control', required: true %>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col">
+        <label for="customer_customer_type" class="form-label">
+          <%= t('activerecord.attributes.customer.customer_type').humanize %>
+        </label>
+
+        <% Customers::Type.list.each do |customer_type|%>
+          <div class="form-check">
+            <%= form.radio_button :customer_type, customer_type, required: true, class: 'form-check-input' %>
+            <label class="text-normal text-sm" for="customer_customer_type"><%= t(customer_type, scope: 'enumerations.customers/type') %></label>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <hr class="horizontal dark m-3">
+
+    <%= form.fields_for :customer_address, CustomerAddress.new do |address| %>
+      <div class="row mt-2">
+        <div class="col">
+          <label for="customer_customer_address_full_address" class="form-label"><%= t('activerecord.attributes.customer_address.full_address').humanize %></label>
+          <%= address.text_field :address, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-lg-4 col-md-12 col-xs-12">
+          <label for="customer_customer_address_country" class="form-label">
+            <%= t('activerecord.attributes.customer_address.country').humanize %>
+          </label>
+
+          <br>
+
+          <div id="customer_country_select"
+               data-controller="shared--virtual-select"
+               data-url="/countries"
+               data-multiple="false"
+               data-placeholder="<%= I18n.t('shared.dropdowns.select') %>"
+               data-action="change->shared--countries#getStates"></div>
+
+          <%#= form.select(:country,
+                          CS.countries.map { |code, country| [country, code] },
+                          { },
+                          {
+                            data: {
+                              controller: 'shared--virtual-select',
+                              action: 'change->shared--countries#getStates',
+                              multiple: 'false',
+                              placeholder: I18n.t('shared.dropdowns.select')
+                            }
+                          }) %>
+        </div>
+
+        <div class="col-lg-4 col-md-12 col-xs-12">
+          <label for="customer_customer_address_country" class="form-label">
+            <%= t('activerecord.attributes.customer_address.state').humanize %>
+          </label>
+
+          <br>
+
+          <%#= form.select(:state,
+                          CS.states(:ec).map { |code, state| [state, code] },
+                          { },
+                          {
+                            data: {
+                              controller: 'shared--virtual-select shared--countries',
+                              multiple: 'false',
+                              placeholder: I18n.t('shared.dropdowns.select')
+                            }
+                          }) %>
+        </div>
+
+        <div class="col-lg-4 col-md-12 col-xs-12">
+          <label for="customer_customer_address_country" class="form-label">
+            <%= t('activerecord.attributes.customer_address.city').humanize %>
+          </label>
+
+          <br>
+
+          <%#= form.select(:city,
+                          [ ],
+                          { },
+                          { data: { controller: 'shared--virtual-select', multiple: 'false', placeholder: I18n.t('shared.dropdowns.select') } }) %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row mt-2">
+      <div class="col">
+        <%= form.submit 'Guardar', class: 'btn bg-gradient-success w-100' %>
+      </div>
+    </div>
+
+
+    <label class="mt-4">Project Description</label>
+    <p class="form-text text-muted text-xs ms-1">
+      This is how others will learn about the project, so make it good!
+    </p>
+    <div class="ql-toolbar ql-snow"><span class="ql-formats"><span class="ql-header ql-picker"><span class="ql-picker-label" tabindex="0" role="button" aria-expanded="false" aria-controls="ql-picker-options-0"><svg viewBox="0 0 18 18"> <polygon class="ql-stroke" points="7 11 9 13 11 11 7 11"></polygon> <polygon class="ql-stroke" points="7 7 9 5 11 7 7 7"></polygon> </svg></span><span class="ql-picker-options" aria-hidden="true" tabindex="-1" id="ql-picker-options-0"><span tabindex="0" role="button" class="ql-picker-item" data-value="1"></span><span tabindex="0" role="button" class="ql-picker-item" data-value="2"></span><span tabindex="0" role="button" class="ql-picker-item" data-value="3"></span><span tabindex="0" role="button" class="ql-picker-item"></span></span></span><select class="ql-header" style="display: none;"><option value="1"></option><option value="2"></option><option value="3"></option><option selected="selected"></option></select></span><span class="ql-formats"><button type="button" class="ql-bold"><svg viewBox="0 0 18 18"> <path class="ql-stroke" d="M5,4H9.5A2.5,2.5,0,0,1,12,6.5v0A2.5,2.5,0,0,1,9.5,9H5A0,0,0,0,1,5,9V4A0,0,0,0,1,5,4Z"></path> <path class="ql-stroke" d="M5,9h5.5A2.5,2.5,0,0,1,13,11.5v0A2.5,2.5,0,0,1,10.5,14H5a0,0,0,0,1,0,0V9A0,0,0,0,1,5,9Z"></path> </svg></button><button type="button" class="ql-italic"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="13" y1="4" y2="4"></line> <line class="ql-stroke" x1="5" x2="11" y1="14" y2="14"></line> <line class="ql-stroke" x1="8" x2="10" y1="14" y2="4"></line> </svg></button><button type="button" class="ql-underline"><svg viewBox="0 0 18 18"> <path class="ql-stroke" d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"></path> <rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="12" x="3" y="15"></rect> </svg></button><button type="button" class="ql-link"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="11" y1="7" y2="11"></line> <path class="ql-even ql-stroke" d="M8.9,4.577a3.476,3.476,0,0,1,.36,4.679A3.476,3.476,0,0,1,4.577,8.9C3.185,7.5,2.035,6.4,4.217,4.217S7.5,3.185,8.9,4.577Z"></path> <path class="ql-even ql-stroke" d="M13.423,9.1a3.476,3.476,0,0,0-4.679-.36,3.476,3.476,0,0,0,.36,4.679c1.392,1.392,2.5,2.542,4.679.36S14.815,10.5,13.423,9.1Z"></path> </svg></button></span><span class="ql-formats"><button type="button" class="ql-list" value="ordered"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="15" y1="4" y2="4"></line> <line class="ql-stroke" x1="7" x2="15" y1="9" y2="9"></line> <line class="ql-stroke" x1="7" x2="15" y1="14" y2="14"></line> <line class="ql-stroke ql-thin" x1="2.5" x2="4.5" y1="5.5" y2="5.5"></line> <path class="ql-fill" d="M3.5,6A0.5,0.5,0,0,1,3,5.5V3.085l-0.276.138A0.5,0.5,0,0,1,2.053,3c-0.124-.247-0.023-0.324.224-0.447l1-.5A0.5,0.5,0,0,1,4,2.5v3A0.5,0.5,0,0,1,3.5,6Z"></path> <path class="ql-stroke ql-thin" d="M4.5,10.5h-2c0-.234,1.85-1.076,1.85-2.234A0.959,0.959,0,0,0,2.5,8.156"></path> <path class="ql-stroke ql-thin" d="M2.5,14.846a0.959,0.959,0,0,0,1.85-.109A0.7,0.7,0,0,0,3.75,14a0.688,0.688,0,0,0,.6-0.736,0.959,0.959,0,0,0-1.85-.109"></path> </svg></button><button type="button" class="ql-list" value="bullet"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="6" x2="15" y1="4" y2="4"></line> <line class="ql-stroke" x1="6" x2="15" y1="9" y2="9"></line> <line class="ql-stroke" x1="6" x2="15" y1="14" y2="14"></line> <line class="ql-stroke" x1="3" x2="3" y1="4" y2="4"></line> <line class="ql-stroke" x1="3" x2="3" y1="9" y2="9"></line> <line class="ql-stroke" x1="3" x2="3" y1="14" y2="14"></line> </svg></button></span><span class="ql-formats"><button type="button" class="ql-clean"><svg class="" viewBox="0 0 18 18"> <line class="ql-stroke" x1="5" x2="13" y1="3" y2="3"></line> <line class="ql-stroke" x1="6" x2="9.35" y1="12" y2="3"></line> <line class="ql-stroke" x1="11" x2="15" y1="11" y2="15"></line> <line class="ql-stroke" x1="15" x2="11" y1="11" y2="15"></line> <rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="7" x="2" y="14"></rect> </svg></button></span></div><div id="editor" class="ql-container ql-snow"><div class="ql-editor" data-gramm="false" contenteditable="true"><p>Hello World!</p><p>Some initial <strong>bold</strong> text</p><p><br></p></div><div class="ql-clipboard" contenteditable="true" tabindex="-1"></div><div class="ql-tooltip ql-hidden"><a class="ql-preview" rel="noopener noreferrer" target="_blank" href="about:blank"></a><input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a class="ql-remove"></a></div></div>
+    <label class="mt-4 form-label">Project Tags</label>
+    <div class="choices" data-type="select-multiple" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"><div class="choices__inner"><select class="form-control choices__input" name="choices-multiple-remove-button" id="choices-multiple-remove-button" multiple="" hidden="" tabindex="-1" data-choice="active"><option value="Choice 1">Choice 1</option><option value="Two">Label Two</option></select><div class="choices__list choices__list--multiple"><div class="choices__item choices__item--selectable" data-item="" data-id="1" data-value="Choice 1" data-custom-properties="null" aria-selected="true" data-deletable="">Choice 1<button type="button" class="choices__button" aria-label="Remove item: 'Choice 1'" data-button="">Remove item</button></div><div class="choices__item choices__item--selectable" data-item="" data-id="2" data-value="Two" data-custom-properties="null" aria-selected="true" data-deletable="">Label Two<button type="button" class="choices__button" aria-label="Remove item: 'Two'" data-button="">Remove item</button></div></div><input type="text" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="false"></div><div class="choices__list choices__list--dropdown" aria-expanded="false"><div class="choices__list" aria-multiselectable="true" role="listbox"><div id="choices--choices-multiple-remove-button-item-choice-2" class="choices__item choices__item--choice choices__item--selectable is-highlighted" role="option" data-choice="" data-id="2" data-value="Choice 2" data-select-text="Press to select" data-choice-selectable="" aria-selected="true">Choice 2</div><div id="choices--choices-multiple-remove-button-item-choice-3" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="3" data-value="Choice 3" data-select-text="Press to select" data-choice-selectable="">Choice 3</div><div id="choices--choices-multiple-remove-button-item-choice-4" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="4" data-value="Choice 4" data-select-text="Press to select" data-choice-selectable="">Choice 4</div><div id="choices--choices-multiple-remove-button-item-choice-5" class="choices__item choices__item--choice choices__item--disabled" role="option" data-choice="" data-id="5" data-value="One" data-select-text="Press to select" data-choice-disabled="" aria-disabled="true">Label One</div><div id="choices--choices-multiple-remove-button-item-choice-7" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="7" data-value="Three" data-select-text="Press to select" data-choice-selectable="">Label Three</div></div></div></div>
+    <div class="row">
+      <div class="col-6">
+        <label class="form-label">Start Date</label>
+        <input class="form-control datetimepicker flatpickr-input" type="text" placeholder="Please select start date" data-input="" onfocus="focused(this)" onfocusout="defocused(this)">
+      </div>
+      <div class="col-6">
+        <label class="form-label">End Date</label>
+        <input class="form-control datetimepicker flatpickr-input" type="text" placeholder="Please select end date" data-input="" onfocus="focused(this)" onfocusout="defocused(this)">
+      </div>
+    </div>
+    <label class="mt-4 form-label">Starting Files</label>
+    <form action="/file-upload" class="form-control dropzone dz-clickable" id="dropzone">
+
+      <div class="dz-default dz-message"><button class="dz-button" type="button">Drop files here to upload</button></div></form>
+    <div class="d-flex justify-content-end mt-4">
+      <button type="button" name="button" class="btn btn-light m-0">Cancel</button>
+      <button type="button" name="button" class="btn bg-gradient-primary m-0 ms-2">Create Project</button>
+    </div>
+  </div>
+<% end %>

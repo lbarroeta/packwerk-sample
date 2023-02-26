@@ -1,0 +1,13 @@
+es:
+  views:
+    planify:
+      customers:
+        shared:
+          customers: Clientes
+          customer: Cliente
+          new: nuevo
+          edit: editar
+        new:
+          customer_type: tipo de cliente
+          identifier: identificador
+          name: nombre

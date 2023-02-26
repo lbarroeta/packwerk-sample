@@ -4,11 +4,14 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller.js"
-application.register("hello", HelloController)
+import Shared__CountriesController from "./shared/countries_controller"
+application.register("shared--countries", Shared__CountriesController)
 
-import Shared__ModalRequestController from "./shared/modal_request_controller.js"
+import Shared__ModalRequestController from "./shared/modal_request_controller"
 application.register("shared--modal-request", Shared__ModalRequestController)
 
-import Shared__TurboRequestController from "./shared/turbo_request_controller.js"
+import Shared__TurboRequestController from "./shared/turbo_request_controller"
 application.register("shared--turbo-request", Shared__TurboRequestController)
+
+import Shared__VirtualSelectController from "./shared/virtual_select_controller"
+application.register("shared--virtual-select", Shared__VirtualSelectController)

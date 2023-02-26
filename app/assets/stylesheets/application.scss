@@ -1,11 +1,7 @@
-/*
- *= require 'bootstrap'
- *= require_tree .
- *= require_self
-*/
-
 @import "theme/main.min";
 @import "bootstrap-icons/font/bootstrap-icons";
+@import "virtual-select-plugin/dist/virtual-select.min";
+@import "libraries/slim-select";
 
 @font-face {
   font-family: "bootstrap-icons";
@@ -20,3 +16,9 @@
 #nav-profile-option::before {
   display: none !important;
 }
+
+.dropdown .dropdown-toggle:after {
+  display: none;
+}
+
+

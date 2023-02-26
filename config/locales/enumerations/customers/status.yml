@@ -1,0 +1,5 @@
+es:
+  enumerations:
+    customers/status:
+      active: 'Activo'
+      blocked: 'Bloqueado'

@@ -1,0 +1,7 @@
+es:
+  controllers:
+    customers:
+      customers: clientes
+      customer: cliente
+      new: nuevo
+      edit: editar

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_21_225340) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_18_055852) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,60 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_21_225340) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "customer_addresses", force: :cascade do |t|
+    t.bigint "customer_id"
+    t.string "country"
+    t.string "state"
+    t.string "city"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address"], name: "index_customer_addresses_on_address"
+    t.index ["city"], name: "index_customer_addresses_on_city"
+    t.index ["country"], name: "index_customer_addresses_on_country"
+    t.index ["latitude"], name: "index_customer_addresses_on_latitude"
+    t.index ["longitude"], name: "index_customer_addresses_on_longitude"
+    t.index ["state"], name: "index_customer_addresses_on_state"
+  end
+
+  create_table "customer_contacts", force: :cascade do |t|
+    t.bigint "customer_id"
+    t.string "phone"
+    t.string "email"
+    t.string "whatsapp"
+    t.string "twitter"
+    t.string "instagram"
+    t.string "facebook"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id", "email"], name: "index_customer_contacts_on_customer_id_and_email", unique: true
+    t.index ["customer_id", "phone"], name: "index_customer_contacts_on_customer_id_and_phone", unique: true
+    t.index ["customer_id", "whatsapp"], name: "index_customer_contacts_on_customer_id_and_whatsapp", unique: true
+  end
+
+  create_table "customer_users", force: :cascade do |t|
+    t.bigint "customer_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id", "user_id"], name: "index_customer_users_on_customer_id_and_user_id", unique: true
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "status"
+    t.string "customer_type"
+    t.string "identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_type"], name: "index_customers_on_customer_type"
+    t.index ["identifier"], name: "index_customers_on_identifier"
+    t.index ["name"], name: "index_customers_on_name", unique: true
+    t.index ["status"], name: "index_customers_on_status"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -61,6 +115,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_21_225340) do
     t.datetime "discarded_at", precision: nil
     t.string "crypted_password"
     t.string "salt"
+    t.string "role"
+    t.string "status"
     t.index ["discarded_at"], name: "index_users_on_discarded_at"
   end
 

@@ -1,0 +1,4 @@
+en:
+  decorators:
+    customer/index_dropdown:
+      create_client: 'Create Customer'

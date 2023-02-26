@@ -1,0 +1,5 @@
+es:
+  enumerations:
+    customers/type:
+      tour_guide: Guia turistico
+      bus_company: Compañia de Buses
