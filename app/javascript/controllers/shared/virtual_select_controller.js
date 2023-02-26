@@ -1,13 +1,13 @@
-import { Controller } from "@hotwired/stimulus"
+import {Controller} from "@hotwired/stimulus"
 import { VirtualSelect } from "virtual-select-plugin/src/virtual-select";
-import { get } from '@rails/request.js'
+import { FetchRequest } from '@rails/request.js'
 
 // Connects to data-controller="shared--virtual-select"
 export default class extends Controller {
-  connect() {
+  async connect() {
     let _this = this
 
-    const values = this.getValues(this.element)
+    const optionValues = await this.getValues(this.element)
 
     VirtualSelect.init(
       {
@@ -15,20 +15,17 @@ export default class extends Controller {
       search: true,
       alwaysShowSelectedOptionsCount: true,
       placeholder: this.element.dataset.placeholder,
-      multiple: JSON.parse(this.element.dataset.multiple)
+      multiple: JSON.parse(this.element.dataset.multiple),
+      options: optionValues
     })
   }
 
-  getValues(element) {
-    debugger
+  async getValues(element) {
     const url = element.dataset.url
 
-    const response = get(url, {
-      contentType: 'application/json'
-    })
+    const request = new FetchRequest('get', url)
+    const response = await request.perform()
 
-    if (response.ok) {
-      debugger
-    }
+    return await response.json
   }
 }

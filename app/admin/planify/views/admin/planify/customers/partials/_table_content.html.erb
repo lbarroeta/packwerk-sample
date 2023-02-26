@@ -12,7 +12,7 @@
   <td class="ps-1" style="width: 25%"><%= customer.customer_type_humanize %></td>
   <td class="ps-1 pt-4" style="width: 15%">
     <%= render Shared::Buttons::DropdownComponent.new(
-      options: CustomerDecorator.table_dropdown(customer)
+      options: Admin::Planify::CustomerDecorator.table_dropdown(customer)
     ) %>
   </td>
 </tr>

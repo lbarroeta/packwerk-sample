@@ -1,12 +1,13 @@
 module Shared
   class CountriesController < ApplicationController
     def index
-      binding.pry
-      render json: CS.countries.to_json, status: :ok
+      countries = CS.countries.map { |key, value| { label: value, value: key } }
+      render json: countries.to_json, status: :ok
     end
 
     def states
-      CS.states(params[:country].to_sym)
+      states = CS.states(params[:country].to_sym).map { |key, value| { label: value, value: key } }
+      render json: states.to_json, status: :ok
     end
 
     def cities

@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   root to: 'shared/sessions#new'
 
-  draw(:planify)
+  draw('admin/planify')
   draw(:shared)
 
   match '*path' => redirect('/'), via: :get

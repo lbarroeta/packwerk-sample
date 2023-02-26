@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       delete :sign_out, to: 'sessions#destroy'
     end
 
-    resources :countries, only: :index, constraints: :json do
+    resources :countries, only: :index do
       collection do
         get :states
         get :cities

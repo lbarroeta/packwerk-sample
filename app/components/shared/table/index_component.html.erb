@@ -8,7 +8,11 @@
       </thead>
 
       <tbody id="<%= turbo_frame %>">
-        <%= render Shared::Table::IndexRowsComponent.new(data: data, rows_partial: rows_partial) %>
+        <%= render Shared::Table::IndexRowsComponent.new(
+          data: data,
+          rows_partial: rows_partial,
+          headers_count: headers.size
+        ) %>
       </tbody>
     </table>
   </div>

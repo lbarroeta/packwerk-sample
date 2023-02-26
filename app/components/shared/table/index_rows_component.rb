@@ -5,11 +5,11 @@ class Shared::Table::IndexRowsComponent < Shared::Table::IndexComponent
 
   attr_accessor :data, :rows_partial, :headers_count, :klass
 
-  def initialize(data:, rows_partial:)
+  def initialize(data:, rows_partial:, headers_count:)
     @data = data
     @rows_partial = rows_partial
 
-    @headers_count = CustomerDecorator.index_table_headers.size
+    @headers_count = headers_count
     @klass = @data.klass.name.downcase
   end
 end
