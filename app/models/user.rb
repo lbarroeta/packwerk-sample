@@ -30,4 +30,18 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :role, presence: true
   validates :status, presence: true
+
+  has_many :customer_users
+  has_many :customers, through: :customer_users
+
+  accepts_nested_attributes_for :customer_users
+
+  has_enumeration_for :role, with: Dashboards::Planify::Users::Role, create_scopes: true
+  has_enumeration_for :status, with: Dashboards::Planify::Users::Status, create_scopes: true
+
+  after_create_commit :assign_password
+
+  def assign_password
+    update(password: SecureRandom.hex(4))
+  end
 end

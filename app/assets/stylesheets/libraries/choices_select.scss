@@ -1,0 +1,16 @@
+@import "choices.js/public/assets/styles/base";
+@import "choices.js/public/assets/styles/choices.min";
+
+.choices {
+  color: black;
+
+  .choices__inner {
+    border-radius: 1rem;
+    background-color: white;
+  }
+
+  .choices__list--dropdown.is-active {
+    margin-top: .5rem;
+    border-radius: 1rem;
+  }
+}

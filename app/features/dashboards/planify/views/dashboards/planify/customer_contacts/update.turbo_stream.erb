@@ -1,0 +1,2 @@
+<%= turbo_stream.replace('modal-content', render(Shared::Modals::SuccessfulMessageComponent.new)) %>
+<%= turbo_stream.update('customer-show-contact-data', partial: 'admin/planify/customers/show/contact_data', locals: { contact: @customer.contact }) %>

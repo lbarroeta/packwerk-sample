@@ -1,0 +1,4 @@
+es:
+  enumerations:
+    dashboards/planify/customers/type:
+      tour_guide: Guia turistico

@@ -1,0 +1,17 @@
+#autocomplete-list {
+  margin-top: -1rem;
+  border: 1px solid lightgrey;
+  border-radius: 1rem;
+}
+
+#autocomplete-list li:first-child {
+  margin-top: 1rem !important;
+}
+
+.autocomplete-list-items {
+  list-style-type: none;
+  color: black;
+  margin-left: 0;
+  margin-bottom: 1rem;
+  cursor: pointer !important;
+}

@@ -1,17 +1,17 @@
 module Shared
   class CountriesController < ApplicationController
-    def index
-      countries = CS.countries.map { |key, value| { label: value, value: key } }
-      render json: countries.to_json, status: :ok
-    end
-
     def states
-      states = CS.states(params[:country].to_sym).map { |key, value| { label: value, value: key } }
-      render json: states.to_json, status: :ok
+      @states = CS.states(params[:country])
     end
 
     def cities
-      CS.states(params[:state].to_sym)
+      @cities = CS.cities(params[:state], params[:country])
+    end
+
+    private
+
+    def formatted_result(result)
+      result.map { |key, value| { label: value, value: key } }
     end
   end
 end

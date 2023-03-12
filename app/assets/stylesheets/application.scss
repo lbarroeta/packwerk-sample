@@ -1,7 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400&display=swap');
+
+@import "theme/buttons";
+@import "theme/dropdowns";
+@import "theme/inputs";
+@import "theme/list-group";
 @import "theme/main.min";
+@import "theme/sidebar";
+
 @import "bootstrap-icons/font/bootstrap-icons";
 @import "virtual-select-plugin/dist/virtual-select.min";
 @import "libraries/slim-select";
+
+@import "libraries/choices_select";
+
+@import "dashboards/planify/customers";
 
 @font-face {
   font-family: "bootstrap-icons";
@@ -20,5 +32,3 @@
 .dropdown .dropdown-toggle:after {
   display: none;
 }
-
-

@@ -1,11 +1,12 @@
 <div class="dropdown">
-  <button class="btn bg-gradient-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+  <button class="btn btn-action dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     <%= t('options', scope: 'decorators.customer/index_dropdown') %>
   </button>
+
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
     <% options.each do |option| %>
       <li>
-        <%= link_to option[:title], option[:url], method: option[:method], class: 'dropdown-item' %>
+        <%= link_to option[:title], option[:url], method: option[:method], class: 'dropdown-item', data: { controller: option[:controller] } %>
       </li>
     <% end %>
   </ul>

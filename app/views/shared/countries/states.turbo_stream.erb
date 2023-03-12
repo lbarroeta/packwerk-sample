@@ -1,0 +1,8 @@
+<%= turbo_stream.update 'new_customer_address_state' do %>
+  <%= select_tag "customer_address[state]",
+                 options_for_select(@states.map { |key, value| [value, key] }.sort),
+                 prompt: I18n.t('shared.dropdowns.select'),
+                 class: 'form-select',
+                 required: true,
+                 data: { controller: 'shared--countries', action: 'change->shared--countries#getCities' }%>
+<% end %>

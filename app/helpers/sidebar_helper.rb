@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module SidebarHelper
   def option_status(url)
-    request.url.include?(url) ? 'active nav-link' : 'nav-link'
+    request.url.eql?(url) ? 'active' : nil
   end
 end

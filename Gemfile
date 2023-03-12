@@ -3,12 +3,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'active_decorator'
 gem 'city-state'
 gem 'countries'
 gem 'discard', '~> 1.2'
 gem 'enumerate_it'
+gem 'figjam'
+gem 'httparty'
 gem 'jsbundling-rails'
+gem 'mapbox-sdk'
 gem 'packwerk'
 gem 'pagy', '~> 4.11'
 gem 'pundit'
@@ -17,6 +19,7 @@ gem 'sorcery', '~> 0.16.1'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'view_component'
+gem 'wicked'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '>= 7.0.0'
@@ -40,10 +43,10 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'graphwerk'
+  gem 'pocky'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 5.0.0'
   gem 'rexml', '~> 3.2', '>= 3.2.4'
+  gem 'rspec-rails', '~> 5.0.0'
   gem 'shoulda-matchers'
 end
 
