@@ -47,6 +47,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rexml', '~> 3.2', '>= 3.2.4'
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'rubocop', require: false
   gem 'shoulda-matchers'
 end
 

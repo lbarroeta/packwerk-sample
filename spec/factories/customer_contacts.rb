@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: customer_contacts
@@ -21,6 +23,13 @@
 #
 FactoryBot.define do
   factory :customer_contact do
-    
+    association :customer, factory: :customer
+
+    email { Faker::Internet.email }
+    facebook { Faker::Internet.url }
+    instagram { Faker::Internet.username }
+    phone { Faker::PhoneNumber.phone_number }
+    twitter { Faker::Internet.username }
+    whatsapp { Faker::PhoneNumber.phone_number }
   end
 end

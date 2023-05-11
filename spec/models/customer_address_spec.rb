@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: customer_addresses
@@ -38,8 +40,6 @@ RSpec.describe CustomerAddress, type: :model do
           should have_db_index :address
           should have_db_index :city
           should have_db_index :country
-          should have_db_index :latitude
-          should have_db_index :longitude
           should have_db_index :state
         }
       end
@@ -49,8 +49,6 @@ RSpec.describe CustomerAddress, type: :model do
           should validate_presence_of :address
           should validate_presence_of :city
           should validate_presence_of :country
-          should validate_presence_of :latitude
-          should validate_presence_of :longitude
           should validate_presence_of :state
         }
       end

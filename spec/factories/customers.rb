@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: customers
@@ -19,9 +21,9 @@
 #
 FactoryBot.define do
   factory :customer do
-    customer_type { Customers::Type::TOUR_GUIDE }
+    customer_type { Dashboards::Planify::Customers::Type::TOUR_GUIDE }
     identifier { Faker::Company.duns_number }
     name { Faker::Company.name }
-    status { Customers::Status::ACTIVE }
+    status { Dashboards::Planify::Customers::Status::ACTIVE }
   end
 end

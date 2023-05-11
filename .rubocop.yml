@@ -1,0 +1,39 @@
+AllCops:
+  TargetRubyVersion: 3.1
+  NewCops: enable
+
+  Exclude:
+    - bin/**
+    - config/environments/**
+    - config/initializers/**
+    - db/seeds/**
+    - lib/tasks/**
+    - spec/support/**/*
+    - vendor/**/*
+
+Lint/DuplicateBranch:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/IdenticalConditionalBranches:
+  Enabled: false
+
+Metrics/BlockLength:
+  AllowedMethods:
+    - after
+    - before
+    - context
+    - define
+    - describe
+    - factory
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 40
+
+Layout/LineLength:
+  AllowedPatterns: ['\A#']

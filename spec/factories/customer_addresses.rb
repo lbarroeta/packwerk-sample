@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: customer_addresses
@@ -24,6 +26,13 @@
 #
 FactoryBot.define do
   factory :customer_address do
-    
+    association :customer, factory: :customer
+
+    address { Faker::Address.full_address }
+    city { Faker::Address.city }
+    country { Faker::Address.country }
+    latitude { Faker::Address.latitude }
+    longitude { Faker::Address.longitude }
+    state { Faker::Address.state }
   end
 end

@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 module Dashboards
   module Planify
     class CustomerContactsController < Dashboards::Planify::DashboardsController
-
       before_action :customer
-      before_action :customer_contact, only: [:edit, :update]
+      before_action :customer_contact, only: %i[edit update]
 
       def create
         @customer_contact = CustomerContact.new(permitted_params)
