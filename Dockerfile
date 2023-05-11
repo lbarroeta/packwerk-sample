@@ -21,7 +21,7 @@ COPY Gemfile.lock Gemfile.lock
 COPY package.json package.json
 COPY yarn.lock yarn.lock
 
-RUN gem install bundler -v 2.2.15
+RUN gem install bundler -v 2.3.26
 RUN bundle install
 RUN yarn install
 

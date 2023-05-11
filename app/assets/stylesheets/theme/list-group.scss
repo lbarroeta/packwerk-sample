@@ -1,0 +1,13 @@
+@import "theme/main.min";
+
+.list-group.list-group-flush {
+  background-color: white;
+}
+
+.list-group a {
+  &.active {
+    font-weight: 400;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    background-color: rgb(110, 191, 229);
+  }
+}

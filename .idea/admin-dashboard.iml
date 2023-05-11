@@ -167,6 +167,9 @@
       </list>
     </option>
   </component>
+  <component name="RailwaysModuleConfiguration">
+    <option name="autoUpdate" value="true" />
+  </component>
   <component name="RakeTasksCache">
     <option name="myRootTask">
       <RakeTaskImpl id="rake">
@@ -346,11 +349,6 @@
               <RakeTaskImpl description="" fullCommand="db:truncate_all" id="truncate_all" />
             </subtasks>
           </RakeTaskImpl>
-          <RakeTaskImpl id="graphwerk">
-            <subtasks>
-              <RakeTaskImpl description="Produce an updated packwerk.png architecture diagram using Graphwerk" fullCommand="graphwerk:update" id="update" />
-            </subtasks>
-          </RakeTaskImpl>
           <RakeTaskImpl id="javascript">
             <subtasks>
               <RakeTaskImpl description="Build your JavaScript bundle" fullCommand="javascript:build" id="build" />
@@ -371,6 +369,12 @@
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl description="Prints out your Rack middleware stack" fullCommand="middleware" id="middleware" />
+          <RakeTaskImpl id="pocky">
+            <subtasks>
+              <RakeTaskImpl description="Generate dependency graph for packwerk packages" fullCommand="pocky:generate[package_path,default_package,filename,analyze_sizes,dpi,package_color,secondary_package_color,dependency_edge,deprecated_reference_edge,deprecated_reference_ranking]" id="generate[package_path,default_package,filename,analyze_sizes,dpi,package_color,secondary_package_color,dependency_edge,deprecated_reference_edge,deprecated_reference_ranking]" />
+              <RakeTaskImpl description="" fullCommand="pocky:generate" id="generate" />
+            </subtasks>
+          </RakeTaskImpl>
           <RakeTaskImpl description="Remove schema information from model and fixture files" fullCommand="remove_annotation" id="remove_annotation" />
           <RakeTaskImpl description="Removes the route map from routes.rb" fullCommand="remove_routes" id="remove_routes" />
           <RakeTaskImpl description="Restart app by touching tmp/restart.txt" fullCommand="restart" id="restart" />

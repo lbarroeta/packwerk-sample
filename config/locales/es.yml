@@ -1,5 +1,11 @@
 es:
   activerecord:
+    errors:
+      models:
+        customer:
+          attributes:
+            identifier:
+              taken: 'ya esta en uso'
     models:
       customer: Cliente
       customer_address: Direccion
@@ -14,6 +20,15 @@ es:
         country: País
         state: Estado/Provincia
         city: Ciudad
+      customer_contact:
+        email: Email de contacto
+        facebook: Direccion de Facebook
+        instagram: Perfil de Instagram
+        phone: Número de contacto
+        twitter: Perfil de Twitter
+        whatsapp: Número de Whatsapp
+  errors:
+    format: '%{attribute} %{message}'
   shared:
     dropdowns:
       select: Seleccione una opcion

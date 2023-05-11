@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
   include Pundit::Authorization
 
   append_view_path(Dir.glob(Rails.root.join('app/admin/*/views')))
+  append_view_path(Dir.glob(Rails.root.join('app/features/dashboards/*/views')))
 end

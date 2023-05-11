@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def sidebar_option_status(url)
-    request.url.include?(url) ? 'active nav-link' : 'nav-link'
+  def default_value(object)
+    'N/D' if object.nil?
   end
 end

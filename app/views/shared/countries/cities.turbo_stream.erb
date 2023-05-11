@@ -1,0 +1,7 @@
+<%= turbo_stream.update 'new_customer_address_city' do %>
+  <%= select_tag "customer_address[city]",
+                 options_for_select(@cities.sort),
+                 prompt: I18n.t('shared.dropdowns.select'),
+                 class: 'form-select',
+                 required: true %>
+<% end %>

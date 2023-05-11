@@ -1,0 +1,18 @@
+<tr class="table-content-tr text-xs" id="<%= dom_id(customer) %>">
+  <td class="ps-1" style="width: 35%">
+    <div class="d-flex py-1">
+      <div class="d-flex flex-column justify-content-center">
+        <span class="text-bold mb-0"><%= customer.name %></span>
+        <span><%= customer.status_humanize %></span>
+      </div>
+    </div>
+  </td>
+
+  <td class="ps-1" style="width: 25%"><%= customer.identifier %></td>
+  <td class="ps-1" style="width: 25%"><%= customer.customer_type_humanize %></td>
+  <td class="ps-1 pt-4" style="width: 15%">
+    <%= render Shared::Buttons::IconDropdownComponent.new(
+      options: Dashboards::Planify::CustomersDecorator.table_dropdown(customer)
+    ) %>
+  </td>
+</tr>

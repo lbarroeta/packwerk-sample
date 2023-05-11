@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+#
 # == Schema Information
 #
 # Table name: customer_users
@@ -15,4 +17,8 @@
 class CustomerUser < ApplicationRecord
   belongs_to :customer
   belongs_to :user
+
+  accepts_nested_attributes_for :user, allow_destroy: true
+
+  validates :user_id, uniqueness: { scope: :customer_id }
 end

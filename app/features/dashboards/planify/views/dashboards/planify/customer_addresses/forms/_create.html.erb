@@ -1,0 +1,74 @@
+<%= form_with model: @customer_address, url: admin_planify_customer_customer_addresses_path, method: :post  do |form| %>
+  <div class="card mt-4">
+    <div class="card-body">
+      <div class="row mt-2 mb-2">
+        <div class="col">
+          <label for="customer_customer_address_full_address" class="form-label"><%= t('activerecord.attributes.customer_address.full_address').humanize %></label>
+          <%= form.text_field :address, class: 'form-control', required: true %>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-lg-4 col-md-12 col-xs-12">
+          <label for="customer_customer_address_country" class="form-label">
+            <%= t('activerecord.attributes.customer_address.country').humanize %>
+          </label>
+
+          <br>
+
+          <%= form.select :country,
+                          CS.countries.map { |key, value| [value, key] }.sort,
+                          { prompt: I18n.t('shared.dropdowns.select') },
+                          {
+                            class: 'form-select',
+                            required: true,
+                            data: {
+                              controller: 'shared--countries',
+                              action: 'change->shared--countries#getStates'
+                            }
+                          } %>
+        </div>
+
+        <div class="col-lg-4 col-md-12 col-xs-12">
+          <label for="customer_customer_address_country" class="form-label">
+            <%= t('activerecord.attributes.customer_address.state').humanize %>
+          </label>
+
+          <br>
+
+          <%= turbo_frame_tag 'new_customer_address_state' do %>
+            <%= form.select :state,
+                            [],
+                            { prompt: I18n.t('shared.dropdowns.select') },
+                            { class: 'form-select', required: true } %>
+          <% end %>
+        </div>
+
+        <div class="col-lg-4 col-md-12 col-xs-12">
+          <label for="customer_customer_address_country" class="form-label">
+            <%= t('activerecord.attributes.customer_address.city').humanize %>
+          </label>
+
+          <br>
+
+          <%= turbo_frame_tag 'new_customer_address_city' do %>
+            <%= form.select :state,
+                            [],
+                            { prompt: I18n.t('shared.dropdowns.select') },
+                            { class: 'form-select', required: true } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <hr class="horizontal dark m-1">
+
+    <div class="card-footer">
+      <div class="row mt-2">
+        <div class="col">
+          <%= form.submit 'Guardar', class: 'btn bg-gradient-success w-100' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -15,5 +15,28 @@
 require 'rails_helper'
 
 RSpec.describe CustomerUser, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#associations' do
+    describe '#belongs_to' do
+      it {
+        should belong_to(:customer)
+        should belong_to(:user)
+      }
+    end
+  end
+
+  describe '#validations' do
+    describe '#uniqueness' do
+      it {
+        should validate_uniqueness_of(:user_id).scoped_to(:customer_id)
+      }
+    end
+  end
+
+  describe '#indexes' do
+    describe '#uniqueness' do
+      it {
+        should have_db_index [:customer_id, :user_id]
+      }
+    end
+  end
 end

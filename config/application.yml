@@ -1,0 +1,3 @@
+development:
+  MAPBOX_PUBLIC_TOKEN: pk.eyJ1IjoibGJhcnJvZXRhIiwiYSI6ImNsYmw5bGpibDA1Z2ozeHF4OGE2eXF1MTIifQ.rzy8s8xk_gH2PqyM8ZLR5A
+  MAPBOX_ACCESS_TOKEN: sk.eyJ1IjoibGJhcnJvZXRhIiwiYSI6ImNsZXN5bGlnejBiODg0NnFsc2FjOGdyaDgifQ.JIjyZlaL7EBklN1rykIrag

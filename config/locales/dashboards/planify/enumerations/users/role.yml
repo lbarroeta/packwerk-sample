@@ -1,0 +1,5 @@
+es:
+  enumerations:
+    dashboards/planify/users/role:
+      admin: Administrador
+      manager: Propietario/Gerente

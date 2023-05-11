@@ -17,5 +17,6 @@ module AdminDashboard
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
     config.paths.add 'app/admin', glob: '*/{*,*/concerns}', eager_load: true
+    config.paths.add 'app/features/dashboards', glob: '*/{*,*/concerns}', eager_load: true
   end
 end

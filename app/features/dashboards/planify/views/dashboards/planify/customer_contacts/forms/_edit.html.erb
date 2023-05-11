@@ -1,0 +1,64 @@
+<%= turbo_frame_tag 'modal' do %>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-controller="shared--modal">
+    <%= turbo_frame_tag 'modal-content' do %>
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar datos de contacto</h5>
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              <i class="bi bi-x-lg" style="color: black"></i>
+            </button>
+          </div>
+
+          <%= form_with model: @customer_contact, url: admin_planify_customer_customer_contact_path(customer_id: @customer.id, id: @customer_contact.id), method: :put do |form| %>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col">
+                  <label class="form-label"><%= t('activerecord.attributes.customer_contact.email').humanize %></label>
+                  <%= form.email_field :email, class: 'form-control', required: true %>
+                </div>
+              </div>
+
+              <div class="row mt-2">
+                <div class="col">
+                  <label class="form-label"><%= t('activerecord.attributes.customer_contact.phone').humanize %></label>
+                  <%= form.phone_field :phone, class: 'form-control', required: true %>
+                </div>
+              </div>
+
+              <div class="row mt-2">
+                <div class="col">
+                  <label class="form-label"><%= t('activerecord.attributes.customer_contact.whatsapp').humanize %></label>
+                  <%= form.phone_field :whatsapp, class: 'form-control', required: true %>
+                </div>
+
+                <div class="col">
+                  <label class="form-label"><%= t('activerecord.attributes.customer_contact.facebook').humanize %></label>
+                  <%= form.url_field :facebook, class: 'form-control', required: true %>
+                </div>
+              </div>
+
+              <div class="row mt-2">
+                <div class="col">
+                  <label class="form-label"><%= t('activerecord.attributes.customer_contact.instagram').humanize %></label>
+                  <%= form.text_field :instagram, class: 'form-control', required: true %>
+                </div>
+
+                <div class="col">
+                  <label class="form-label"><%= t('activerecord.attributes.customer_contact.twitter').humanize %></label>
+                  <%= form.text_field :twitter, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <%= form.submit 'Guardar', class: 'btn btn-success w-100' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

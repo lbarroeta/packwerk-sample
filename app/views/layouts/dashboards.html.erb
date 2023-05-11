@@ -4,22 +4,36 @@
   <head>
     <title>Planify</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all'  %>
     <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
   </head>
 
   <body class="g-sidenav-show bg-gray-100">
   <%= render(Shared::Navigation::SidebarComponent.new) %>
+
     <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg">
-      <%= render partial: 'layouts/shared/navigation/nav' %>
+      <%= turbo_frame_tag 'modal' %>
+
+      <%= render Shared::Navigation::NavbarComponent.new %>
+
       <div class="container-fluid">
-        <%= yield %>
+        <div class="mt-4">
+          <%= yield %>
+        </div>
       </div>
+
     </main>
   </body>
 </html>

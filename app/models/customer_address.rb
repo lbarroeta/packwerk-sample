@@ -28,7 +28,5 @@ class CustomerAddress < ApplicationRecord
   validates :address, presence: true
   validates :city, presence: true
   validates :country, presence: true
-  validates :latitude, presence: true
-  validates :longitude, presence: true
   validates :state, presence: true
 end

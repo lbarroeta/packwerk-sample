@@ -20,11 +20,11 @@
 class Customer < ApplicationRecord
   validates :customer_type, presence: true
   validates :identifier, presence: true, uniqueness: true
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :status, presence: true
 
-  has_enumeration_for :customer_type, with: Customers::Type, create_scopes: true
-  has_enumeration_for :status, with: Customers::Status, create_scopes: true
+  has_enumeration_for :customer_type, with: Dashboards::Planify::Customers::Type, create_scopes: true
+  has_enumeration_for :status, with: Dashboards::Planify::Customers::Status, create_scopes: true
 
   has_one :address, class_name: 'CustomerAddress', dependent: :destroy
   has_one :contact, class_name: 'CustomerContact', dependent: :destroy
@@ -32,7 +32,9 @@ class Customer < ApplicationRecord
   has_many :customer_users, dependent: :destroy
   has_many :users, through: :customer_users, dependent: :destroy
 
-  default_scope { order(name: :asc) }
-
   accepts_nested_attributes_for :address, allow_destroy: true
+  accepts_nested_attributes_for :contact, allow_destroy: true
+  accepts_nested_attributes_for :customer_users, allow_destroy: true
+
+  default_scope { order(name: :asc) }
 end

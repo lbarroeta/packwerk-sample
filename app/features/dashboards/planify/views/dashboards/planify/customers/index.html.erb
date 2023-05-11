@@ -1,0 +1,7 @@
+<%= render Shared::Buttons::DropdownComponent.new(options: Dashboards::Planify::CustomersDecorator.index_dropdown) %>
+
+<%= render Shared::Table::IndexComponent.new(
+  data: @customers,
+  headers: Dashboards::Planify::CustomersDecorator.index_table_headers,
+  rows_partial: 'dashboards/planify/customers/partials/table_content'
+) %>
