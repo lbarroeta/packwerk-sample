@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: customer_users
@@ -35,7 +37,7 @@ RSpec.describe CustomerUser, type: :model do
   describe '#indexes' do
     describe '#uniqueness' do
       it {
-        should have_db_index [:customer_id, :user_id]
+        should have_db_index %i[customer_id user_id]
       }
     end
   end

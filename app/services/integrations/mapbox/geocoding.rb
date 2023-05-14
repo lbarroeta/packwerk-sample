@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Integrations
   module Mapbox
     class Geocoding
@@ -5,11 +7,11 @@ module Integrations
 
       def initialize(search_text:)
         @search_text = search_text
-        ::Mapbox.access_token = ENV['MAPBOX_TOKEN']
+        ::Mapbox.access_token = ENV.fetch('MAPBOX_TOKEN', nil)
       end
 
       def perform
-        results = ::Mapbox::Geocoder.geocode_forward(search_text)
+        ::Mapbox::Geocoder.geocode_forward(search_text)
       end
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   module Shared
     class MapboxController < ApplicationController
@@ -16,7 +18,7 @@ module Admin
       private
 
       def set_key
-        ::Mapbox.access_token = ENV['MAPBOX_ACCESS_TOKEN']
+        ::Mapbox.access_token = ENV.fetch('MAPBOX_ACCESS_TOKEN', nil)
       end
     end
   end

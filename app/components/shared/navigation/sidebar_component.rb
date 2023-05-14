@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
-class Shared::Navigation::SidebarComponent < ViewComponent::Base
-
-  def initialize(*)
-    super
+module Shared
+  module Navigation
+    class SidebarComponent < ViewComponent::Base
+      def initialize(*)
+        super
+      end
+    end
   end
-
 end

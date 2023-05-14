@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   draw('features/dashboards/planify')
 
-  match '*path' => redirect('/'), via: :get
+  get '*path' => redirect('/')
 end

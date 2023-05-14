@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Dashboards
   module Planify
     class CustomersDecorator < SimpleDelegator
@@ -24,7 +26,8 @@ module Dashboards
 
         [
           { title: I18n.t('see_details', scope: 'decorators.customer/table_dropdown'), url: see_details_url },
-          { title: I18n.t(status, scope: 'decorators.customer/table_dropdown'), url: "/dashboards/planify/customers/#{object.id}", method: 'destroy'.to_sym }
+          { title: I18n.t(status, scope: 'decorators.customer/table_dropdown'),
+            url: "/dashboards/planify/customers/#{object.id}", method: :destroy }
         ]
       end
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Shared
   class CountriesController < ApplicationController
     def states

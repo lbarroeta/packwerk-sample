@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
-class Shared::Buttons::DropdownComponent < ViewComponent::Base
-  attr_accessor :options
+module Shared
+  module Buttons
+    class DropdownComponent < ViewComponent::Base
+      attr_accessor :options
 
-  def initialize(options:)
-    super
+      def initialize(options:)
+        super
 
-    @options = options
+        @options = options
+      end
+    end
   end
 end

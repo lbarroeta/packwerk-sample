@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: customers
@@ -42,7 +44,7 @@ RSpec.describe Customer, type: :model do
       context '#default' do
         it 'returns ordered by name ASC' do
           expected_order_names = ('a'..'e').to_a.shuffle.map do |name|
-            create(:customer, name: name)
+            create(:customer, name:)
           end.pluck(:name).sort
 
           expect(Customer.all.pluck(:name)).to eq(expected_order_names)

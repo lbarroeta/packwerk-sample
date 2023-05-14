@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
-class Shared::Navigation::NavbarComponent < ViewComponent::Base
-
-  def initialize(*)
-    super
+module Shared
+  module Navigation
+    class NavbarComponent < ViewComponent::Base
+      def initialize(*)
+        super
+      end
+    end
   end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCustomerContacts < ActiveRecord::Migration[7.0]
   def change
     create_table :customer_contacts do |t|
@@ -12,8 +14,8 @@ class CreateCustomerContacts < ActiveRecord::Migration[7.0]
       t.timestamps
     end
 
-    add_index :customer_contacts, [:customer_id, :phone], unique: true
-    add_index :customer_contacts, [:customer_id, :email], unique: true
-    add_index :customer_contacts, [:customer_id, :whatsapp], unique: true
+    add_index :customer_contacts, %i[customer_id phone], unique: true
+    add_index :customer_contacts, %i[customer_id email], unique: true
+    add_index :customer_contacts, %i[customer_id whatsapp], unique: true
   end
 end

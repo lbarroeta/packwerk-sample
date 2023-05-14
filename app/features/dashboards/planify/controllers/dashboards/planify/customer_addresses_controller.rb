@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Dashboards
   module Planify
     class CustomerAddressesController < Dashboards::Planify::DashboardsController
@@ -27,7 +29,6 @@ module Dashboards
       def permitted_params
         params.require(:customer_address).permit(:address, :city, :country, :state)
       end
-
     end
   end
 end
