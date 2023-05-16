@@ -53,14 +53,19 @@ end
 
 group :development do
   gem 'annotate'
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 4.1.0'
-  # Display performance information such as SQL time and flame graphs for each request in your browser.
-  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+  gem 'capistrano', "~> 3.17", require: false
+  gem 'capistrano-bundler', '~> 2.1.0', require: false
+  gem 'capistrano-passenger', '~> 0.2.1'
+  gem 'capistrano-postgresql', '~> 6.2'
+  gem 'capistrano-rails', '~> 1.6', '>= 1.6.2'
+  gem 'capistrano-rails-console', '~> 2.3'
+  gem 'capistrano-rbenv', '~> 2.2'
+  gem 'capistrano-upload-config', '~> 0.9.0'
+
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'web-console', '>= 4.1.0'
 end
 
 group :test do

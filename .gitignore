@@ -29,6 +29,13 @@
 /config/master.key
 /app/assets/builds
 !/app/assets/builds/.keep
+config/application.yml
 
 .DS_Store
 .idea
+
+config/application.yml
+config/application.staging.yml
+config/database.staging.yml
+config/secrets.staging.yml
+config/application.yml
