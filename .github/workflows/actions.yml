@@ -85,20 +85,6 @@ jobs:
   Linting:
     runs-on: ubuntu-latest
 
-    env:
-      RAILS_ENV: test
-      DATABASE_URL: postgres://planify:password@localhost:5432/planify_test
-
-    services:
-      postgres:
-        image: postgres:15-alpine
-        ports:
-          - "5432:5432"
-        env:
-          POSTGRES_DB: planify_test
-          POSTGRES_USER: planify
-          POSTGRES_PASSWORD: password
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -109,8 +95,5 @@ jobs:
           ruby-version: '3.1'
           bundler-cache: true
 
-      - name: Setup database
-        run: bin/rails db:schema:load
-
       - name: Run Rubocop
-        run: bundle exec rspec
+        run: bundle exec rubocop

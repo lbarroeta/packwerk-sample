@@ -1,4 +1,4 @@
-<%= link_to 'Editar', edit_dashboards_planify_customer_path(@customer), data: { turbo: false } %>
-
-<%#= render partial: 'admin/planify/customers/show/header' %>
-<%#= render partial: 'admin/planify/customers/show/tabs' %>
+<%= render partial: 'dashboards/planify/customers/show/header' %>
+<%= render partial: 'dashboards/planify/customers/show/basic_details' %>
+<%= render partial: 'dashboards/planify/customers/show/address_details' %>
+<%= render partial: 'dashboards/planify/customers/show/contact_details' %>
