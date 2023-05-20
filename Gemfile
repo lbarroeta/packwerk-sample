@@ -53,7 +53,7 @@ end
 
 group :development do
   gem 'annotate'
-  gem 'capistrano', "~> 3.17", require: false
+  gem 'capistrano', '~> 3.17', require: false
   gem 'capistrano-bundler', '~> 2.1.0', require: false
   gem 'capistrano-passenger', '~> 0.2.1'
   gem 'capistrano-postgresql', '~> 6.2'

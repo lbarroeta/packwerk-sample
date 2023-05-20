@@ -46,7 +46,6 @@ RSpec.describe CustomerAddress, type: :model do
 
       context 'presence' do
         it {
-          should validate_presence_of :address
           should validate_presence_of :city
           should validate_presence_of :country
           should validate_presence_of :state

@@ -15,6 +15,10 @@
 
 @import "dashboards/planify/customers";
 
+p {
+  color: black;
+}
+
 @font-face {
   font-family: "bootstrap-icons";
   src: font-url("bootstrap-icons/font/fonts/bootstrap-icons.woff2") format("woff2"),

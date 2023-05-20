@@ -50,12 +50,6 @@
 
   <!-- CustomerAddress details -->
   <%= form.fields_for :address, CustomerAddress.new, html: { autocomplete: 'off' } do |customer_address_form| %>
-    <%= customer_address_form.hidden_field :city %>
-    <%= customer_address_form.hidden_field :country %>
-    <%= customer_address_form.hidden_field :latitude %>
-    <%= customer_address_form.hidden_field :longitude %>
-    <%= customer_address_form.hidden_field :state %>
-
     <div class="card card-body mt-4">
       <div class="row">
         <div class="col">
@@ -65,18 +59,27 @@
 
       <div class="row mt-4">
         <div class="col">
-          <label>Direccion completa</label>
-          <i class="bi bi-geo-alt input-left-icon"></i>
-          <%= customer_address_form.text_field :address,
-                                               class: 'form-control input-padded-text',
-                                               id: 'search-field',
-                                               required: true,
-                                               data: {
-                                                 controller: 'shared--autocomplete',
-                                                 action: 'input->shared--autocomplete#fetchResults',
-                                                 url: '/admin/shared/mapbox/geocoding'
-                                               } %>
-          <ul id="autocomplete-list" role="listbox" style="display: none; cursor: pointer"></ul>
+          <label>Pais</label>
+          <%= customer_address_form.select :country,
+                                           CS.countries.map { |country| [country.last, country.first] }.sort,
+                                           { prompt: 'Seleccione un pais' },
+                                           { class: 'form-select', data: { controller: 'shared--choices-select shared--countries', action: 'change->shared--countries#getStates' } } %>
+        </div>
+
+        <div class="col">
+          <label>Estado</label>
+          <%= customer_address_form.select :state,
+                                          [],
+                                          { prompt: 'Seleccione un estado' },
+                                          { class: 'form-select', id: 'states-select', disabled: true, data: { controller: 'shared--countries', action: 'change->shared--countries#getCities' } } %>
+        </div>
+
+        <div class="col">
+          <label>Ciudad</label>
+          <%= customer_address_form.select :city,
+                                          [],
+                                          { prompt: 'Seleccione un estado' },
+                                          { class: 'form-select', id: 'cities-select', data: { controller: '' }, disabled: true } %>
         </div>
       </div>
     </div>

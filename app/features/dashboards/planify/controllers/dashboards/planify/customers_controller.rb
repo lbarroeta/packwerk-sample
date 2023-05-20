@@ -26,13 +26,13 @@ module Dashboards
         end
       end
 
+      def edit; end
+
       def update
-        respond_to do |format|
-          if @customer.update(permitted_params)
-            format.turbo_stream
-          else
-            format.turbo_stream
-          end
+        if @customer.update(permitted_params)
+          redirect_to dashboards_planify_customer_path(@customer)
+        else
+          render :edit
         end
       end
 

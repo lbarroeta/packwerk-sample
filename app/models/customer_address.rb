@@ -27,7 +27,6 @@
 class CustomerAddress < ApplicationRecord
   belongs_to :customer
 
-  validates :address, presence: true
   validates :city, presence: true
   validates :country, presence: true
   validates :state, presence: true

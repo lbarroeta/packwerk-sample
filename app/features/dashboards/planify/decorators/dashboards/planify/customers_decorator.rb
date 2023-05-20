@@ -30,6 +30,14 @@ module Dashboards
             url: "/dashboards/planify/customers/#{object.id}", method: :destroy }
         ]
       end
+
+      def formatted_customer_type
+        case customer_type
+        when 'tour_guide' then 'Guia turistico'
+        else
+          'Por definir'
+        end
+      end
     end
   end
 end
